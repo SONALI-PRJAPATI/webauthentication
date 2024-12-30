@@ -66,47 +66,54 @@
 </head>
 <body>
     <div class="container">
-        <form action="{{ route('register.submit') }}" class="form" method="post">
-            @csrf
-            <h2>Register</h2>
+    <form action="{{ route('register.submit') }}" class="form" method="post" enctype="multipart/form-data">
+    @csrf
+    <h2>Register</h2>
 
-            <div class="form-group">
-                <input type="text" name="name" id="name" placeholder="Name" value="{{ old('name') }}">
-                @error("name")
-                <div class="error">{{ $message }}</div>
-                @enderror
-            </div>
+    <div class="form-group">
+        <input type="text" name="name" id="name" placeholder="Name" value="{{ old('name') }}">
+        @error("name")
+        <div class="error">{{ $message }}</div>
+        @enderror
+    </div>
 
-            <div class="form-group">
-                <input type="email" name="email" id="email" placeholder="Email" value="{{ old('email') }}">
-                @error("email")
-                <div class="error">{{ $message }}</div>
-                @enderror
-            </div>
+    <div class="form-group">
+        <input type="email" name="email" id="email" placeholder="Email" value="{{ old('email') }}">
+        @error("email")
+        <div class="error">{{ $message }}</div>
+        @enderror
+    </div>
 
-            <div class="form-group">
-               <input type="tel" name="phone" id="phone" placeholder="Phone" value="{{ old('phone') }}">
-                @error("phone")
-               <div class="error">{{ $message }}</div>
-                @enderror
-             </div>
+    <div class="form-group">
+        <input type="tel" name="phone" id="phone" placeholder="Phone" value="{{ old('phone') }}">
+        @error("phone")
+        <div class="error">{{ $message }}</div>
+        @enderror
+    </div>
 
+    <div class="form-group">
+        <input type="password" name="password" id="password" placeholder="Password">
+        @error("password")
+        <div class="error">{{ $message }}</div>
+        @enderror
+    </div>
 
-            <div class="form-group">
-                <input type="password" name="password" id="password" placeholder="Password">
-                @error("password")
-                <div class="error">{{ $message }}</div>
-                @enderror
-            </div>
+    <div class="form-group">
+        <input type="file" name="attachment[]" class="form-control" accept="image/*" multiple> <!-- Accept only images -->
+        @error('attachment')
+        <span class="text-danger">{{ $message }}</span>
+        @enderror
+    </div>
 
-            <div class="form-group">
-                <button type="submit">Register</button>
-            </div>
+    <div class="form-group">
+        <button type="submit">Register</button>
+    </div>
 
-            <div class="form-group">
-                <p>Already have an account? <a href="/">Login</a></p>
-            </div>
-        </form>
+    <div class="form-group">
+        <p>Already have an account? <a href="/">Login</a></p>
+    </div>
+</form>
+     
     </div>
 </body>
 </html>

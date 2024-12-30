@@ -80,11 +80,13 @@
                     <div class="error">{{ $message }}</div>
                 @enderror
             </div>
-
+              <div class="form-group">
+              <a href="/reset">Forget Password?</a>
+              </div>
             <div class="form-group">
                 <button type="submit">Login</button>
             </div>
-
+    
             <div class="form-group">
                 <p>Don't have an account? <a href="/register">Create New Account</a></p>
             </div>
